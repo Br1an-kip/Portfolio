@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function PortfolioLanding() {
   const [greeting, setGreeting] = useState('');
   const [showName, setShowName] = useState(false);
   const [nameFadeOut, setNameFadeOut] = useState(false);
   const [showButton, setShowButton] = useState(false);
+  const navigate = useNavigate();
 
   // Set greeting based on current time
   useEffect(() => {
@@ -20,13 +22,8 @@ export default function PortfolioLanding() {
 
   // Sequence the animations
   useEffect(() => {
-    // Show name after a brief delay
     const nameTimer = setTimeout(() => setShowName(true), 800);
-
-    // Fade out name after 3 seconds
     const fadeOutTimer = setTimeout(() => setNameFadeOut(true), 3800);
-
-    // Show button after name fades out
     const buttonTimer = setTimeout(() => setShowButton(true), 4800);
 
     return () => {
@@ -35,6 +32,10 @@ export default function PortfolioLanding() {
       clearTimeout(buttonTimer);
     };
   }, []);
+
+  const handlePortfolioClick = () => {
+    navigate('/portfolio');
+  };
 
   return (
     <div className="portfolio-container">
@@ -255,14 +256,14 @@ export default function PortfolioLanding() {
             <span className="word" style={{ animationDelay: showName ? '0.3s' : '-0.3s' }}>is</span>
           </div>
           <div className="name-line">
-            <span className="word" style={{ animationDelay: showName ? '0.45s' : '-0.15s' }}>John</span>
-            <span className="word" style={{ animationDelay: showName ? '0.6s' : '0s' }}>Doe</span>
+            <span className="word" style={{ animationDelay: showName ? '0.45s' : '-0.15s' }}>Brian</span>
+            <span className="word" style={{ animationDelay: showName ? '0.6s' : '0s' }}>Kiprono</span>
           </div>
         </div>
       </div>
 
       <div className={`button-wrapper ${showButton ? 'visible' : ''}`}>
-        <button className="portfolio-button">
+        <button className="portfolio-button" onClick={handlePortfolioClick}>
           Click to View Portfolio
         </button>
       </div>
