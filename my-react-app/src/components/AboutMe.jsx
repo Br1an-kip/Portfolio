@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/about-me.css';
+import profileImg from "../image/Me.jpg";
 
 export default function AboutMe() {
   return (
@@ -17,7 +18,10 @@ export default function AboutMe() {
             Outside of coding, I'm always exploring new technologies, contributing to open-source projects, and diving deeper into web performance optimization. Let's build something amazing together!
           </p>
         </div>
-        <div className="about-image">👨‍💻</div>
+        <div>
+          <img src={profileImg} alt="👨‍💻" className="about-image" />           
+          </div>
+      
       </div>
     </div>
   );

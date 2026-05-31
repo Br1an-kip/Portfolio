@@ -13,7 +13,7 @@ export default function Nav({ currentSection, setCurrentSection }) {
           <ChevronLeft size={20} />
           Back
         </button>
-        <div className="logo">JD</div>
+        <div className="logo">BK</div>
       </div>
       <ul className="nav-links">
         <li 
